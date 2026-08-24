@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-foreground;
+    background-image: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(125, 211, 192, 0.10), transparent),
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(139, 124, 246, 0.08), transparent);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  ::selection {
+    @apply bg-signal/25 text-foreground;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #7dd3c0;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@layer components {
+  /* Core glass surface used across cards, nav, modals */
+  .glass {
+    @apply relative bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] shadow-glass;
+  }
+
+  .glass-panel {
+    @apply glass rounded-2xl;
+  }
+
+  .glass-hover {
+    @apply transition-all duration-500 ease-out hover:bg-white/[0.05] hover:border-white/[0.14] hover:shadow-glass-lg;
+  }
+
+  /* subtle top-edge highlight to sell the "glass" edge */
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 0.06)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: theme("backgroundImage.noise");
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-signal;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground via-foreground to-signal/80;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-foreground text-ink px-6 py-3 text-sm font-medium
+    transition-all duration-300 hover:shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-glass {
+    @apply glass glass-hover inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-foreground;
+  }
+
+  .dot-grid-bg {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+/* Custom scrollbar for a more premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #07080b;
+}
+::-webkit-scrollbar-thumb {
+  background: #23262f;
+  border-radius: 999px;
+  border: 2px solid #07080b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #34384a;
+}
