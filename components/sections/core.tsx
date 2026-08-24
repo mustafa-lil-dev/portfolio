@@ -30,7 +30,9 @@ function CorePreview() {
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
         <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-        <span className="ml-3 text-xs font-mono text-muted">CORE — Product Preview</span>
+        <span className="ml-3 text-xs font-mono text-muted">
+          CORE — Product Preview
+        </span>
       </div>
 
       <div className="grid grid-cols-12 h-[320px] sm:h-[380px] text-xs font-mono">
@@ -75,10 +77,18 @@ function CorePreview() {
         {/* editor */}
         <div className="col-span-12 sm:col-span-5 border-r border-white/[0.06] p-4 overflow-hidden relative">
           <div className="text-muted-2 space-y-1.5 leading-relaxed">
-            <p><span className="text-violet">fn</span> <span className="text-signal">handle_request</span>(req: Request) {"{"}</p>
+            <p>
+              <span className="text-violet">fn</span>{" "}
+              <span className="text-signal">handle_request</span>(req: Request){" "}
+              {"{"}
+            </p>
             <p className="pl-4">let user = auth::verify(&amp;req)?;</p>
             <p className="relative pl-4 rounded bg-amber/10 -mx-1 px-1">
-              db::query(user.<span className="text-amber underline decoration-wavy decoration-amber/70">id</span>)
+              db::query(user.
+              <span className="text-amber underline decoration-wavy decoration-amber/70">
+                id
+              </span>
+              )
               <span className="absolute -right-1 top-0 h-full w-0.5 bg-amber/60" />
             </p>
             <p className="pl-4 text-muted-2">.await?;</p>
@@ -87,9 +97,10 @@ function CorePreview() {
           <div className="absolute bottom-3 left-4 right-4 glass rounded-lg px-3 py-2 flex items-start gap-2">
             <ShieldAlert className="h-3.5 w-3.5 text-amber shrink-0 mt-0.5" />
             <p className="text-muted-2 leading-snug">
-              <span className="text-amber">Cross-file reference:</span> `user.id` type
-              changed in <span className="text-foreground">schema.sql</span> — 3 call
-              sites may break.
+              <span className="text-amber">Cross-file reference:</span>{" "}
+              `user.id` type changed in{" "}
+              <span className="text-foreground">schema.sql</span> — 3 call sites
+              may break.
             </p>
           </div>
         </div>
@@ -136,7 +147,9 @@ export function Core() {
           <div className="flex items-center justify-center gap-2 mb-5">
             <Badge variant="amber">{core.status}</Badge>
           </div>
-          <p className="section-eyebrow mb-4 justify-center">Currently Building</p>
+          <p className="section-eyebrow mb-4 justify-center">
+            Currently Building
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-medium mb-5">
             {core.name}
           </h2>
@@ -167,8 +180,12 @@ export function Core() {
               transition={{ duration: 0.6, delay: i * 0.08 }}
               className="glass glass-hover rounded-2xl p-6"
             >
-              <h3 className="font-display text-lg font-medium mb-2.5">{p.title}</h3>
-              <p className="text-sm text-muted leading-relaxed">{p.description}</p>
+              <h3 className="font-display text-lg font-medium mb-2.5">
+                {p.title}
+              </h3>
+              <p className="text-sm text-muted leading-relaxed">
+                {p.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -191,13 +208,19 @@ export function Core() {
                 className="glass rounded-2xl p-6 relative"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs text-signal">{phase.phase}</span>
-                  <span className="font-mono text-[11px] text-muted-2">{phase.window}</span>
+                  <span className="font-mono text-xs text-signal">
+                    {phase.phase}
+                  </span>
                 </div>
-                <h4 className="font-display text-lg font-medium mb-4">{phase.title}</h4>
+                <h4 className="font-display text-lg font-medium mb-4">
+                  {phase.title}
+                </h4>
                 <ul className="space-y-2">
                   {phase.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-muted">
+                    <li
+                      key={item}
+                      className="flex items-start gap-2 text-sm text-muted"
+                    >
                       <span className="mt-1.5 h-1 w-1 rounded-full bg-white/30 shrink-0" />
                       {item}
                     </li>
@@ -208,9 +231,7 @@ export function Core() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted-2 mt-12 max-w-xl mx-auto leading-relaxed">
-          {core.disclaimer}
-        </p>
+        <p className="text-center text-xs text-muted-2 mt-12 max-w-xl mx-auto leading-relaxed"></p>
       </div>
     </section>
   );
