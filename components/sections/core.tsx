@@ -35,7 +35,7 @@ function CorePreview() {
         </span>
       </div>
 
-      <div className="grid grid-cols-12 h-[320px] sm:h-[380px] text-xs font-mono">
+      <div className="grid grid-cols-12 sm:h-[380px] text-xs font-mono">
         {/* file tree */}
         <div className="col-span-3 border-r border-white/[0.06] p-3 hidden sm:block">
           <p className="text-[10px] uppercase tracking-wider text-muted-2 mb-2 px-1">
@@ -75,15 +75,15 @@ function CorePreview() {
         </div>
 
         {/* editor */}
-        <div className="col-span-12 sm:col-span-5 border-r border-white/[0.06] p-4 overflow-hidden relative">
-          <div className="text-muted-2 space-y-1.5 leading-relaxed">
-            <p>
+        <div className="col-span-12 sm:col-span-5 border-r border-white/[0.06] p-4 pb-5 sm:overflow-hidden relative">
+          <div className="text-muted-2 space-y-1.5 leading-relaxed overflow-x-auto">
+            <p className="whitespace-nowrap">
               <span className="text-violet">fn</span>{" "}
               <span className="text-signal">handle_request</span>(req: Request){" "}
               {"{"}
             </p>
-            <p className="pl-4">let user = auth::verify(&amp;req)?;</p>
-            <p className="relative pl-4 rounded bg-amber/10 -mx-1 px-1">
+            <p className="pl-4 whitespace-nowrap">let user = auth::verify(&amp;req)?;</p>
+            <p className="relative pl-4 rounded bg-amber/10 -mx-1 px-1 whitespace-nowrap">
               db::query(user.
               <span className="text-amber underline decoration-wavy decoration-amber/70">
                 id
@@ -91,10 +91,10 @@ function CorePreview() {
               )
               <span className="absolute -right-1 top-0 h-full w-0.5 bg-amber/60" />
             </p>
-            <p className="pl-4 text-muted-2">.await?;</p>
+            <p className="pl-4 text-muted-2 whitespace-nowrap">.await?;</p>
             <p>{"}"}</p>
           </div>
-          <div className="absolute bottom-3 left-4 right-4 glass rounded-lg px-3 py-2 flex items-start gap-2">
+          <div className="mt-4 sm:mt-0 sm:absolute sm:bottom-3 sm:left-4 sm:right-4 glass rounded-lg px-3 py-2 flex items-start gap-2">
             <ShieldAlert className="h-3.5 w-3.5 text-amber shrink-0 mt-0.5" />
             <p className="text-muted-2 leading-snug">
               <span className="text-amber">Cross-file reference:</span>{" "}
@@ -128,8 +128,8 @@ function CorePreview() {
       </div>
 
       <div className="flex items-center gap-2 px-4 py-2.5 border-t border-white/[0.06] bg-white/[0.02] text-[11px] font-mono text-muted-2">
-        <TerminalIcon className="h-3.5 w-3.5" />
-        <span>Indexing repository — 214 files analyzed</span>
+        <TerminalIcon className="h-3.5 w-3.5 shrink-0" />
+        <span className="min-w-0 truncate">Indexing repository — 214 files analyzed</span>
       </div>
     </div>
   );

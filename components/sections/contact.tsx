@@ -78,7 +78,7 @@ export function Contact() {
                 className="glass glass-hover flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm"
               >
                 <Mail className="h-4 w-4 text-signal shrink-0" />
-                {profile.email}
+                <span className="min-w-0 truncate">{profile.email}</span>
               </Link>
               <Link
                 href={profile.github}
@@ -87,7 +87,7 @@ export function Contact() {
                 className="glass glass-hover flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm"
               >
                 <Github className="h-4 w-4 text-signal shrink-0" />
-                github.com/mustafa-lil-dev
+                <span className="min-w-0 truncate">github.com/mustafa-lil-dev</span>
               </Link>
               <Link
                 href={profile.linkedin}
@@ -96,7 +96,7 @@ export function Contact() {
                 className="glass glass-hover flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm"
               >
                 <Linkedin className="h-4 w-4 text-signal shrink-0" />
-                linkedin.com/in/mustafa-khoso
+                <span className="min-w-0 truncate">linkedin.com/in/mustafa-khoso</span>
               </Link>
             </div>
           </div>

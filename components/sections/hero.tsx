@@ -37,9 +37,9 @@ export function Hero() {
               initial="hidden"
               animate="show"
               custom={0}
-              className="section-eyebrow mb-6 glass inline-flex rounded-full px-4 py-1.5"
+              className="mb-6 inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 glass rounded-2xl sm:rounded-full px-4 py-2 sm:py-1.5 font-mono text-[10px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.2em] text-signal text-center"
             >
-              <Sparkles className="h-3.5 w-3.5" />
+              <Sparkles className="h-3.5 w-3.5 shrink-0" />
               Available for select freelance &amp; product work
             </motion.div>
 
